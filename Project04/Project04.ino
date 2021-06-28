@@ -1,6 +1,6 @@
 // Declaring all the variables
-const int GreenLEDPin = 9;
-const int RedLEDPin = 11;
+const int GreenLEDPin = 11;
+const int RedLEDPin = 9;
 const int BlueLEDPin = 10;
 
 const int RedSensorPin = A0;
@@ -26,15 +26,30 @@ void setup()
 void loop() 
 {
   RedSensorValue = analogRead(RedSensorPin);
-  delay(5);
+  delay(50);
   GreenSensorValue = analogRead(GreenSensorPin);
-  delay(5);
+  delay(50);
   BlueSensorValue = analogRead(BlueSensorPin);
 
-  Serial.print("Raw Sensor Values /t Red: ");
+  Serial.print("Raw Sensor Values \t Red: ");
   Serial.print(RedSensorValue);
-  Serial.print("/t Green: ");
+  Serial.print("\t Green: ");
   Serial.print(GreenSensorValue);
-  Serial.print("/t Blue: ");
+  Serial.print("\t Blue: ");
   Serial.println(BlueSensorValue);
+  
+  RedValue = RedSensorValue/4;
+  GreenValue = GreenSensorValue/4;
+  BlueValue = BlueSensorValue/4;
+
+  Serial.print("Mapped Sensor Values \t Red: ");
+  Serial.print(RedValue);
+  Serial.print("\t Green: ");
+  Serial.print(GreenValue);
+  Serial.print("\t Blue: ");
+  Serial.println(BlueValue);
+
+  analogWrite(RedLEDPin, RedValue);
+  analogWrite(GreenLEDPin, GreenValue);
+  analogWrite(BlueLEDPin, BlueValue);
 }
