@@ -37,6 +37,4 @@ void loop()
   Serial.print(GreenSensorValue);
   Serial.print("/t Blue: ");
   Serial.println(BlueSensorValue);
-  
-  
 }
