@@ -1,11 +1,11 @@
 // Declaring all the variables
-const int GreenLEDPin = 11;
-const int RedLEDPin = 9;
-const int BlueLEDPin = 10;
+const int GREEN_LED_PIN = 11;
+const int RED_LED_PIN = 9;
+const int BLUE_LED_PIN = 10;
 
-const int RedSensorPin = A0;
-const int GreenSensorPin = A1;
-const int BlueSensorPin = A2;
+const int GREEN_SENSOR_PIN = A1;
+const int RED_SENSOR_PIN = A0;
+const int BLUE_SENSOR_PIN = A2;
 
 int RedValue = 0;
 int GreenValue = 0;
@@ -18,18 +18,18 @@ int BlueSensorValue =0;
 void setup()
 {
   Serial.begin(9600);
-  pinMode(GreenLEDPin, OUTPUT);
-  pinMode(RedLEDPin, OUTPUT);
-  pinMode(BlueLEDPin, OUTPUT);
+  pinMode(GREEN_LED_PIN, OUTPUT);
+  pinMode(RED_LED_PIN, OUTPUT);
+  pinMode(BLUE_LED_PIN, OUTPUT);
 }
 
 void loop() 
 {
-  RedSensorValue = analogRead(RedSensorPin);
+  RedSensorValue = analogRead(RED_SENSOR_PIN);
   delay(50);
-  GreenSensorValue = analogRead(GreenSensorPin);
+  GreenSensorValue = analogRead(GREEN_SENSOR_PIN);
   delay(50);
-  BlueSensorValue = analogRead(BlueSensorPin);
+  BlueSensorValue = analogRead(BLUE_SENSOR_PIN);
 
   Serial.print("Raw Sensor Values \t Red: ");
   Serial.print(RedSensorValue);
@@ -49,7 +49,7 @@ void loop()
   Serial.print("\t Blue: ");
   Serial.println(BlueValue);
 
-  analogWrite(RedLEDPin, RedValue);
-  analogWrite(GreenLEDPin, GreenValue);
-  analogWrite(BlueLEDPin, BlueValue);
+  analogWrite(RED_LED_PIN, RedValue);
+  analogWrite(GREEN_LED_PIN, GreenValue);
+  analogWrite(BLUE_LED_PIN, BlueValue);
 }
