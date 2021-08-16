@@ -4,7 +4,6 @@ Servo MyServo;
 
 // Declare Variables
 int const POT_PIN = A0;
-//int PotVal;
 int RotVal;
 int Angle;
 
@@ -17,10 +16,6 @@ void setup()
 
 void loop() 
 {
- //PotVal = analogRead(POT_PIN);
- //Serial.print("PotVal: ");
- //Serial.print(PotVal);
- //Angle = map(PotVal, 0, 1023, 0, 179);
  for (int RotVal = 0; RotVal <= 1023; RotVal++)
   {
     Angle = map (RotVal, 0, 1023, 0, 179);
