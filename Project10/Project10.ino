@@ -17,8 +17,7 @@ int motorEnabled = 0;
 int motorSpeed = 0;
 int motorDirection = 1;
 
-void setup()
-{
+void setup() {
  pinMode(DIRECTION_SWITCH_PIN, INPUT);
  pinMode(ON_OFF_SWITCH_STATE_SWITCH_PIN, INPUT);
  pinMode(CONTROL_PIN_1, OUTPUT);
@@ -27,16 +26,16 @@ void setup()
  digitalWrite(ENABLE_PIN, LOW);
 }
 
-void loop() 
-{
-   onOffSwitchState = digitalRead(ON_OFF_SWITCH_STATE_SWITCH_PIN);
+void loop() {
+  
+  onOffSwitchState = digitalRead(ON_OFF_SWITCH_STATE_SWITCH_PIN);
   delay(1);
   directionSwitchState = digitalRead(DIRECTION_SWITCH_PIN);
   motorSpeed = analogRead(POT_PIN)/4;
 
   if(onOffSwitchState != previousDirectionSwitchState) {
     if(directionSwitchState == HIGH) {
-      motorDirection = !motorEnabled;
+      motorEnabled = !motorEnabled;
     }
   }
 
@@ -49,8 +48,7 @@ void loop()
   if(motorDirection == 1) {
     digitalWrite(CONTROL_PIN_1, HIGH);
     digitalWrite(CONTROL_PIN_2, LOW);
-   }
-   
+   } 
   else {
     digitalWrite(CONTROL_PIN_1, LOW);
     digitalWrite(CONTROL_PIN_2, HIGH);
